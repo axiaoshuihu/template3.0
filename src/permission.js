@@ -34,6 +34,11 @@ router.beforeEach(async(to, from, next) => {
             var routers = await store.dispatch('permission/getmenus');
             router.options.routes = routers;
             router.addRoutes(routers);
+            if (localStorage.getItem('tag')) {
+              var refreshName = await store.dispatch('tagsView/refresh');
+              await store.dispatch('tagsView/updateRefresh', refreshName);
+            }
+
             if (roles) {
                 next({ ...to });
                 nProgress.done();

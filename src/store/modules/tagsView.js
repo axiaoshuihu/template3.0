@@ -1,3 +1,20 @@
+function getNewRefresh(view) {
+  var cache = [];
+  var str = JSON.stringify(view, (key, value) => {
+      if (typeof value === 'object' && value !== null) {
+          if (cache.indexOf(value) !== -1) {
+              // 移除
+              return;
+          }
+          // 收集所有的值
+          cache.push(value);
+      }
+      return value;
+  });
+  cache = null;
+
+  localStorage.setItem('tag', str);
+}
 const state = {
   visitedViews: [],
   cachedViews: []
@@ -11,6 +28,7 @@ const mutations = {
         title: view.meta.title || 'no-name'
       })
     );
+    getNewRefresh(state.visitedViews);
   },
   ADD_CACHED_VIEW: (state, view) => {
     if (state.cachedViews.includes(view.name)) return;
@@ -26,6 +44,7 @@ const mutations = {
         break;
       }
     }
+    getNewRefresh(state.visitedViews);
   },
   DEL_CACHED_VIEW: (state, view) => {
     const index = state.cachedViews.indexOf(view.name);
@@ -63,6 +82,9 @@ const mutations = {
         break;
       }
     }
+  },
+  UPDATE_REFRESH: (state, view) => {
+    state.visitedViews = view;
   }
 };
 
@@ -149,6 +171,15 @@ const actions = {
 
   updateVisitedView({ commit }, view) {
     commit('UPDATE_VISITED_VIEW', view);
+  },
+  refresh({ commit, state }) {
+    return new Promise((resolve, reject) => {
+      var name = localStorage.getItem('tag');
+      resolve(JSON.parse(name));
+    });
+  },
+  updateRefresh({ commit }, view) {
+    commit('UPDATE_REFRESH', view);
   }
 };
 
