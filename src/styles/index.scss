@@ -1,0 +1,330 @@
+@import './variables.scss';
+@import './mixin.scss';
+@import './transition.scss';
+@import './element-ui.scss';
+@import './sidebar.scss';
+@import './layout.css';
+
+body {
+  height: 100%;
+  box-sizing: border-box;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"]{
+  -moz-appearance: textfield;
+}
+label {
+  font-weight: 700;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+ul,li {
+  list-style-type:none;
+  padding: 0;
+  margin: 0;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+a, a:focus, a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+div:focus {
+  outline: none;
+}
+
+// main-container global css
+.app-container {
+  padding: 20px;
+}
+.abs { position: absolute }
+.rel { position: relative }
+.fix { position: fixed }
+/* 省略号 */
+.nowrap {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+/* background */
+.bgfff {background: #fff;}
+/* float */
+.fl {float: left}
+.fr {float: right}
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+/* 点击手 */
+.hand {cursor: pointer}
+/* font */
+.tc {text-align: center}
+.tl {text-align: left}
+.tr {text-align: right}
+.fwb {font-weight: bold;}
+.fwn {font-weight: normal;}
+.fz12 {font-size: 12px;}
+.fz14 {font-size: 14px;}
+.fz16 {font-size: 16px;}
+.fz18 {font-size: 18px;}
+.fz20 {font-size: 20px;}
+.fz22 {font-size: 22px;}
+.fz24 {font-size: 24px;}
+.fz26 {font-size: 26px;}
+.fz28 {font-size: 28px;}
+.fz30 {font-size: 30px;}
+.fz32 {font-size: 32px;}
+.fz34 {font-size: 34px;}
+.fz36 {font-size: 36px;}
+.fz38 {font-size: 38px;}
+.fz40 {font-size: 40px;}
+.fz42 {font-size: 42px;}
+.fz44 {font-size: 44px;}
+.fz46 {font-size: 46px;}
+.fz48 {font-size: 48px;}
+.fz50 {font-size: 50px;}
+.fz52 {font-size: 52px;}
+.fz54 {font-size: 54px;}
+.fz56 {font-size: 56px;}
+
+.lh20 {line-height: 20px;}
+.lh22 {line-height: 22px;}
+.lh24 {line-height: 24px;}
+.lh26 {line-height: 26px;}
+.lh28 {line-height: 28px;}
+.lh30 {line-height: 30px;}
+.lh32 {line-height: 32px;}
+.lh34 {line-height: 34px;}
+.lh36 {line-height: 36px;}
+.lh38 {line-height: 38px;}
+.lh40 {line-height: 40px;}
+.lh42 {line-height: 42px;}
+.lh44 {line-height: 44px;}
+.lh46 {line-height: 46px;}
+.lh48 {line-height: 48px;}
+.lh50 {line-height: 50px;}
+.lh52 {line-height: 52px;}
+.lh54 {line-height: 54px;}
+.lh56 {line-height: 56px;}
+.lh62 {line-height: 62px;}
+
+/*color*/
+.c333 {color: #333;}
+.c666 {color: #666;}
+.c999 {color: #999;}
+.cDD2020 {color: #DD2020;}
+.cFF0000 {color: #FF0000;}
+.c409EFF {color: #409EFF;}
+.cF56C6C {color: #F56C6C;}
+.c4DA635 {color: #4DA635;}
+.cE6A23C {color: #E6A23C;}
+.c909399 {color: #909399;}
+.c606266 {color: #606266;}
+
+/*backcolor*/
+.bg4DA635 { background: #4DA635;border: #4DA635 }
+
+/* margin */
+.mt5 {margin-top: 5px;}
+.mt8 {margin-top: 8px;}
+.mt10 {margin-top: 10px;}
+.mt15 {margin-top: 15px;}
+.mt20 {margin-top: 20px;}
+.mt25 {margin-top: 25px;}
+.mt30 {margin-top: 30px;}
+.mt35 {margin-top: 35px;}
+.mt40 {margin-top: 40px;}
+.mt45 {margin-top: 45px;}
+.mt48 {margin-top: 48px;}
+.mt50 {margin-top: 50px;}
+.mt55 {margin-top: 55px;}
+.mt60 {margin-top: 60px;}
+.mt60 {margin-top: 70px;}
+
+.ml5 {margin-left: 5px;}
+.ml10 {margin-left: 10px;}
+.ml15 {margin-left: 15px;}
+.ml20 {margin-left: 20px;}
+.ml25 {margin-left: 25px;}
+.ml30 {margin-left: 30px;}
+.ml35 {margin-left: 35px;}
+.ml40 {margin-left: 40px;}
+.ml45 {margin-left: 45px;}
+.ml50 {margin-left: 50px;}
+.ml55 {margin-left: 55px;}
+.ml60 {margin-left: 60px;}
+.ml75 {margin-left: 75px;}
+.ml100 {margin-left: 100px;}
+.ml120 {margin-left: 120px;}
+
+.mr5 {margin-right: 5px;}
+.mr10 {margin-right: 10px;}
+.mr15 {margin-right: 15px;}
+.mr20 {margin-right: 20px;}
+.mr25 {margin-right: 25px;}
+.mr30 {margin-right: 30px;}
+.mr35 {margin-right: 35px;}
+.mr40 {margin-right: 40px;}
+.mr45 {margin-right: 45px;}
+.mr50 {margin-right: 50px;}
+.mr55 {margin-right: 55px;}
+.mr60 {margin-right: 60px;}
+.mr100 {margin-right: 100px;}
+
+
+.mb5 {margin-bottom: 5px;}
+.mb10 {margin-bottom: 10px;}
+.mb15 {margin-bottom: 15px;}
+.mb20 {margin-bottom: 20px;}
+.mb25 {margin-bottom: 25px;}
+.mb30 {margin-bottom: 30px;}
+.mb35 {margin-bottom: 35px;}
+.mb40 {margin-bottom: 40px;}
+.mb45 {margin-bottom: 45px;}
+.mb50 {margin-bottom: 50px;}
+.mb55 {margin-bottom: 55px;}
+.mb60 {margin-bottom: 60px;}
+
+/* padding */
+.pt5 {padding-top: 5px;}
+.pt10 {padding-top: 10px;}
+.pt15 {padding-top: 15px;}
+.pt20 {padding-top: 20px;}
+.pt25 {padding-top: 25px;}
+.pt30 {padding-top: 30px;}
+.pt35 {padding-top: 35px;}
+.pt40 {padding-top: 40px;}
+.pt45 {padding-top: 45px;}
+.pt50 {padding-top: 50px;}
+.pt55 {padding-top: 55px;}
+.pt60 {padding-top: 60px;}
+
+.pl5 {padding-left: 5px;}
+.pl10 {padding-left: 10px;}
+.pl15 {padding-left: 15px;}
+.pl20 {padding-left: 20px;}
+.pl25 {padding-left: 25px;}
+.pl30 {padding-left: 30px;}
+.pl35 {padding-left: 35px;}
+.pl40 {padding-left: 40px;}
+.pl45 {padding-left: 45px;}
+.pl50 {padding-left: 50px;}
+.pl55 {padding-left: 55px;}
+.pl60 {padding-left: 60px;}
+
+.pr5 {padding-right: 5px;}
+.pr10 {padding-right: 10px;}
+.pr15 {padding-right: 15px;}
+.pr20 {padding-right: 20px;}
+.pr25 {padding-right: 25px;}
+.pr30 {padding-right: 30px;}
+.pr35 {padding-right: 35px;}
+.pr40 {padding-right: 40px;}
+.pr45 {padding-right: 45px;}
+.pr50 {padding-right: 50px;}
+.pr55 {padding-right: 55px;}
+.pr60 {padding-right: 60px;}
+
+.pb5 {padding-bottom: 5px;}
+.pb10 {padding-bottom: 10px;}
+.pb15 {padding-bottom: 15px;}
+.pb20 {padding-bottom: 20px;}
+.pb25 {padding-bottom: 25px;}
+.pb30 {padding-bottom: 30px;}
+.pb35 {padding-bottom: 35px;}
+.pb40 {padding-bottom: 40px;}
+.pb45 {padding-bottom: 45px;}
+.pb50 {padding-bottom: 50px;}
+.pb55 {padding-bottom: 55px;}
+.pb60 {padding-bottom: 60px;}
+
+/*width*/
+.w84 {width: 84px!important;}
+.w100 {width: 100px!important;}
+.w120 {width: 120px!important;}
+.w160 {width: 160px!important;}
+.w200 {width: 200px!important;}
+.w220 {width: 220px!important;}
+.w250 {width: 250px!important;}
+.w300 {width: 300px!important;}
+.w320 {width: 320px!important;}
+.w360 {width: 360px!important;}
+.w450 {width: 450px!important;}
+.w670 {width: 670px!important;}
+.w1400 {max-width: 1400px!important;}
+//各种弹出框样式
+//团购限购列表中的时间选择器
+.tuangou,
+.xiangou
+{
+  left:830px!important;
+}
+//新增编辑团购限购中的时间选择器
+.tuangou_add,
+.xiangou_add
+{
+  left:390px!important;
+}
+//财务报表订单数据分析的日期选择器
+.orderDataDate{
+  left:315px!important;
+}
+//运营分析门店分析中的日期选择器
+.mdAnalysis{
+  left: 1055px !important;
+}
+//运营分析门店分析查看趋势弹出框的样式
+.QS{
+  width:1200px!important;
+  height: 500px!important;
+  position: fixed!important;
+  left:440px!important;
+  top:190px!important;
+}
+.QS .svg{
+  position: absolute;
+  display:  inline-block;
+  right:0px;
+  top:0px;
+
+}
+.QS .svg svg{
+  width:40px;
+  height:40px;
+}
+.QS .tu{
+  margin-top:26px;
+  width:1174px;
+  height: 448px;
+}
